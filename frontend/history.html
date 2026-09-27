@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection History - CocoDetect AI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-leaf"></i>
+            <span>CocoDetect</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/dashboard">
+                <i class="fas fa-home"></i> Dashboard
+            </a>
+            <a href="/detect">
+                <i class="fas fa-camera"></i> Detect Disease
+            </a>
+            <a href="/history" class="active">
+                <i class="fas fa-history"></i> History
+            </a>
+            <a href="/admin" id="adminNavLink" style="display: none;">
+                <i class="fas fa-user-shield"></i> Admin Panel
+            </a>
+            <a href="#" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a class="user-info profile-link" href="/profile" aria-label="View profile">
+                <img src="https://ui-avatars.com/api/?name=User&background=2ecc71&color=fff&size=40" alt="User">
+                <div>
+                    <span id="usernameDisplay">User</span>
+                    <small id="userRoleDisplay">Farmer</small>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="top-header">
+            <div class="header-actions">
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </button>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="history-content">
+            <div class="history-header">
+                <div>
+                    <h1><i class="fas fa-history"></i> Detection History</h1>
+                    <p>View all your past disease detections</p>
+                </div>
+                <div class="history-actions">
+                    <button class="btn-filter" onclick="toggleFilter()">
+                        <i class="fas fa-filter"></i> Filter
+                    </button>
+                    <button class="btn-export" onclick="exportHistory()">
+                        <i class="fas fa-file-export"></i> Export
+                    </button>
+                </div>
+            </div>
+
+            <div class="filter-bar" id="filterBar" style="display: none;">
+                <select id="diseaseFilter">
+                    <option value="all">All Diseases</option>
+                    <option value="Bud_Rot">Bud Rot</option>
+                    <option value="Healthy">Healthy</option>
+                    <option value="Leaf_Blight">Leaf Blight</option>
+                    <option value="Root_Wilt">Root Wilt</option>
+                    <option value="Stem_Bleeding">Stem Bleeding</option>
+                </select>
+                <input type="date" id="dateFrom">
+                <input type="date" id="dateTo">
+                <button onclick="applyFilter()" class="btn-apply">Apply</button>
+                <button onclick="clearFilter()" class="btn-clear-filter">Clear</button>
+            </div>
+
+            <div class="history-stats">
+                <div class="history-stat">
+                    <span class="stat-value" id="totalHistory">0</span>
+                    <span class="stat-label">Total Detections</span>
+                </div>
+                <div class="history-stat">
+                    <span class="stat-value" id="healthyHistory">0</span>
+                    <span class="stat-label">Healthy Plants</span>
+                </div>
+                <div class="history-stat">
+                    <span class="stat-value" id="diseaseHistory">0</span>
+                    <span class="stat-label">Diseases Found</span>
+                </div>
+                <div class="history-stat">
+                    <span class="stat-value" id="avgConfidence">0%</span>
+                    <span class="stat-label">Avg Confidence</span>
+                </div>
+            </div>
+
+            <div class="history-list" id="historyList">
+                <!-- History items will be loaded here -->
+            </div>
+
+            <div class="pagination" id="pagination">
+                <button onclick="loadHistory(1)" id="prevPage"><i class="fas fa-chevron-left"></i></button>
+                <span id="pageInfo">Page 1 of 1</span>
+                <button onclick="loadHistory(2)" id="nextPage"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detail Modal -->
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Detection Details</h3>
+                <button onclick="closeModal()" class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Detail content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/history.js"></script>
+    <script>
+        async function logout() {
+            try {
+                await fetch('/api/logout', { method: 'POST' });
+                localStorage.removeItem('user');
+                window.location.href = '/';
+            } catch (error) {
+                console.error('Logout error:', error);
+            }
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const icon = document.querySelector('.theme-toggle i');
+            if (document.body.classList.contains('dark-theme')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+
+        const userData = JSON.parse(localStorage.getItem('user') || '{}');
+        if (userData.username) {
+            document.getElementById('usernameDisplay').textContent = userData.username;
+        }
+        if (userData.is_admin) {
+            document.getElementById('adminNavLink').style.display = 'flex';
+            document.getElementById('userRoleDisplay').textContent = 'Administrator';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - CocoDetect AI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-leaf"></i>
+            <span>CocoDetect</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/admin" class="active">
+                <i class="fas fa-user-shield"></i> Admin Panel
+            </a>
+            <a href="#" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a class="user-info profile-link" href="/profile" aria-label="View admin profile">
+                <img src="https://ui-avatars.com/api/?name=Admin&background=2ecc71&color=fff&size=40" alt="Admin">
+                <div>
+                    <span id="usernameDisplay">Admin</span>
+                    <small>Administrator</small>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="top-header">
+            <div class="header-actions">
+                <button class="notification-btn" onclick="showNotifications()">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge" id="notificationBadge" style="display: none;">0</span>
+                </button>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="admin-content">
+            <!-- Admin Header -->
+            <div class="admin-header">
+                <div>
+                    <h1><i class="fas fa-user-shield"></i> Admin Panel</h1>
+                    <p>Complete system management dashboard</p>
+                </div>
+                <div class="admin-header-actions">
+                    <button class="btn-primary" onclick="refreshData()">
+                        <i class="fas fa-sync"></i> Refresh
+                    </button>
+                </div>
+            </div>
+
+            <!-- Admin Stats -->
+            <div class="admin-stats-grid" id="adminStats">
+                <div class="stat-card stat-primary">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-info">
+                        <h3 id="totalUsers">0</h3>
+                        <p>Total Users</p>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 12%
+                    </div>
+                </div>
+                <div class="stat-card stat-success">
+                    <div class="stat-icon"><i class="fas fa-leaf"></i></div>
+                    <div class="stat-info">
+                        <h3 id="totalDetections">0</h3>
+                        <p>Total Detections</p>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 8%
+                    </div>
+                </div>
+                <div class="stat-card stat-warning">
+                    <div class="stat-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="stat-info">
+                        <h3 id="activeDetections">0</h3>
+                        <p>Active Users</p>
+                    </div>
+                    <div class="stat-change negative">
+                        <i class="fas fa-arrow-down"></i> 3%
+                    </div>
+                </div>
+                <div class="stat-card stat-info">
+                    <div class="stat-icon"><i class="fas fa-robot"></i></div>
+                    <div class="stat-info">
+                        <h3>95%</h3>
+                        <p>Model Accuracy</p>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 2%
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Tabs -->
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="dashboard" onclick="switchTab('dashboard')">
+                    <i class="fas fa-chart-pie"></i> Dashboard
+                </button>
+                <button class="tab-btn" data-tab="users" onclick="switchTab('users')">
+                    <i class="fas fa-users"></i> Users
+                </button>
+                <button class="tab-btn" data-tab="diseases" onclick="switchTab('diseases')">
+                    <i class="fas fa-disease"></i> Diseases
+                </button>
+                <button class="tab-btn" data-tab="detections" onclick="switchTab('detections')">
+                    <i class="fas fa-list"></i> Detections
+                </button>
+                <button class="tab-btn" data-tab="reports" onclick="switchTab('reports')">
+                    <i class="fas fa-file-alt"></i> Reports
+                </button>
+                <button class="tab-btn" data-tab="logs" onclick="switchTab('logs')">
+                    <i class="fas fa-history"></i> Logs
+                </button>
+            </div>
+
+            <!-- Dashboard Tab -->
+            <div class="tab-content active" id="dashboardTab">
+                <div class="dashboard-charts">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Disease Distribution</h3>
+                            <button class="chart-action"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div id="diseaseDistributionChart" style="height: 300px;"></div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Detection Trend</h3>
+                            <button class="chart-action"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div id="detectionTrendChart" style="height: 300px;"></div>
+                    </div>
+                    <div class="chart-card full-width">
+                        <div class="chart-header">
+                            <h3>User Activity</h3>
+                            <button class="chart-action"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div id="userActivityChart" style="height: 300px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users Tab -->
+            <div class="tab-content" id="usersTab">
+                <div class="tab-header">
+                    <h3><i class="fas fa-users"></i> User Management</h3>
+                    <div class="tab-actions">
+                        <button class="btn-add-user" onclick="showAddUser()">
+                            <i class="fas fa-user-plus"></i> Add User
+                        </button>
+                        <button class="btn-export" onclick="exportUsers()">
+                            <i class="fas fa-file-export"></i> Export
+                        </button>
+                        <button class="btn-refresh" onclick="loadUsers()">
+                            <i class="fas fa-sync"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="filter-bar">
+                    <input type="text" id="userSearch" placeholder="Search users..." oninput="filterUsers()">
+                    <select id="userRoleFilter" onchange="filterUsers()">
+                        <option value="all">All Roles</option>
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
+                    </select>
+                    <select id="userStatusFilter" onchange="filterUsers()">
+                        <option value="all">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="selectAllUsers" onchange="toggleAllUsers()"></th>
+                                <th>ID</th>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Detections</th>
+                                <th>Joined</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- Users will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="usersPagination">
+                    <button onclick="changeUsersPage(-1)"><i class="fas fa-chevron-left"></i></button>
+                    <span id="usersPageInfo">Page 1 of 1</span>
+                    <button onclick="changeUsersPage(1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Diseases Tab -->
+            <div class="tab-content" id="diseasesTab">
+                <div class="tab-header">
+                    <h3><i class="fas fa-disease"></i> Disease Management</h3>
+                    <div class="tab-actions">
+                        <button class="btn-export" onclick="exportDiseases()">
+                            <i class="fas fa-file-export"></i> Export
+                        </button>
+                        <button class="btn-refresh" onclick="loadDiseases()">
+                            <i class="fas fa-sync"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <div class="disease-grid" id="diseaseGrid">
+                    <!-- Diseases will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Detections Tab -->
+            <div class="tab-content" id="detectionsTab">
+                <div class="tab-header">
+                    <h3><i class="fas fa-list"></i> All Detections</h3>
+                    <div class="tab-actions">
+                        <button class="btn-export" onclick="exportDetections()">
+                            <i class="fas fa-file-export"></i> Export
+                        </button>
+                        <button class="btn-refresh" onclick="loadDetections()">
+                            <i class="fas fa-sync"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <div class="filter-bar">
+                    <input type="text" id="detectionSearch" placeholder="Search detections..." oninput="filterDetections()">
+                    <select id="diseaseFilter" onchange="filterDetections()">
+                        <option value="all">All Diseases</option>
+                    </select>
+                    <input type="date" id="dateFrom" onchange="filterDetections()">
+                    <input type="date" id="dateTo" onchange="filterDetections()">
+                </div>
+
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>User</th>
+                                <th>Disease</th>
+                                <th>Confidence</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="detectionsTableBody">
+                            <!-- Detections will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="detectionsPagination">
+                    <button onclick="changeDetectionsPage(-1)"><i class="fas fa-chevron-left"></i></button>
+                    <span id="detectionsPageInfo">Page 1 of 1</span>
+                    <button onclick="changeDetectionsPage(1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Reports Tab -->
+            <div class="tab-content" id="reportsTab">
+                <div class="tab-header">
+                    <h3><i class="fas fa-file-alt"></i> Reports</h3>
+                    <div class="tab-actions">
+                        <button class="btn-add-user" onclick="generateReport()">
+                            <i class="fas fa-plus"></i> Generate Report
+                        </button>
+                    </div>
+                </div>
+
+                <div class="reports-grid">
+                    <div class="report-card" onclick="generateQuickReport('summary')">
+                        <i class="fas fa-chart-bar"></i>
+                        <h4>Summary Report</h4>
+                        <p>Overall system statistics</p>
+                    </div>
+                    <div class="report-card" onclick="generateQuickReport('detailed')">
+                        <i class="fas fa-list-ul"></i>
+                        <h4>Detailed Report</h4>
+                        <p>All detections with details</p>
+                    </div>
+                    <div class="report-card" onclick="generateQuickReport('disease_distribution')">
+                        <i class="fas fa-chart-pie"></i>
+                        <h4>Disease Distribution</h4>
+                        <p>Disease occurrence statistics</p>
+                    </div>
+                    <div class="report-card" onclick="generateQuickReport('user_activity')">
+                        <i class="fas fa-users"></i>
+                        <h4>User Activity</h4>
+                        <p>User engagement metrics</p>
+                    </div>
+                </div>
+
+                <div class="reports-list" id="reportsList">
+                    <h4>Generated Reports</h4>
+                    <div id="reportsContainer">
+                        <!-- Reports will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logs Tab -->
+            <div class="tab-content" id="logsTab">
+                <div class="tab-header">
+                    <h3><i class="fas fa-history"></i> System Logs</h3>
+                    <div class="tab-actions">
+                        <button class="btn-refresh" onclick="loadLogs()">
+                            <i class="fas fa-sync"></i> Refresh
+                        </button>
+                        <button class="btn-export" onclick="clearLogs()">
+                            <i class="fas fa-trash"></i> Clear Logs
+                        </button>
+                    </div>
+                </div>
+
+                <div class="log-container" id="logContainer">
+                    <!-- Logs will be loaded here -->
+                </div>
+                <div class="pagination" id="logsPagination">
+                    <button onclick="changeLogsPage(-1)"><i class="fas fa-chevron-left"></i></button>
+                    <span id="logsPageInfo">Page 1 of 1</span>
+                    <button onclick="changeLogsPage(1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div class="modal" id="addUserModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New User</h3>
+                <button onclick="closeAddUser()" class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="addUserForm">
+                    <div class="form-group">
+                        <label>Username *</label>
+                        <input type="text" id="newUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" id="newEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password *</label>
+                        <input type="password" id="newPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="newIsAdmin"> Admin User
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-submit">Create User</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- View User Modal -->
+    <div class="modal" id="viewUserModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>User Details</h3>
+                <button onclick="closeViewUser()" class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="userDetailContent"></div>
+        </div>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div class="modal" id="editUserModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit User</h3>
+                <button onclick="closeEditUser()" class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="editUserForm">
+                    <div class="form-group">
+                        <label>Username *</label>
+                        <input type="text" id="editUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" id="editEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="editPassword" placeholder="Leave blank to keep current password">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="editIsAdmin"> Admin User
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="editIsActive"> Active User
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-submit">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Disease Modal -->
+    <div class="modal" id="addDiseaseModal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h3 id="diseaseModalTitle">Add New Disease</h3>
+                <button onclick="closeAddDisease()" class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="addDiseaseForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Disease Name *</label>
+                            <input type="text" id="diseaseName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Scientific Name</label>
+                            <input type="text" id="diseaseScientificName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Severity</label>
+                        <select id="diseaseSeverity">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                            <option value="Critical">Critical</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="diseaseDescription" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Symptoms</label>
+                        <textarea id="diseaseSymptoms" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Treatment</label>
+                        <textarea id="diseaseTreatment" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Prevention</label>
+                        <textarea id="diseasePrevention" rows="3"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="closeAddDisease()">Cancel</button>
+                        <button type="submit" class="btn-submit" id="diseaseSubmitButton">Add Disease</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detection Detail Modal -->
+    <div class="modal" id="viewDetectionModal">
+        <div class="modal-content" style="max-width: 900px;">
+            <div class="modal-header">
+                <h3>Detection Details</h3>
+                <button onclick="closeViewDetection()" class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="detectionDetailContent"></div>
+        </div>
+    </div>
+
+    <!-- Edit Detection Modal -->
+    <div class="modal" id="editDetectionModal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h3>Edit Detection</h3>
+                <button onclick="closeEditDetection()" class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="editDetectionForm">
+                    <div class="form-group">
+                        <label>Disease Name *</label>
+                        <input type="text" id="editDetectionName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Confidence (%) *</label>
+                        <input type="number" id="editDetectionConfidence" min="0" max="100" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Treatment</label>
+                        <textarea id="editDetectionTreatment" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Modal -->
+    <div class="modal" id="reportModal">
+        <div class="modal-content" style="max-width: 900px;">
+            <div class="modal-header">
+                <h3>Generate Report</h3>
+                <button onclick="closeReportModal()" class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div id="reportGenerationSection">
+                <form id="reportForm">
+                    <div class="form-group">
+                        <label>Report Type</label>
+                        <select id="reportType">
+                            <option value="summary">Summary Report</option>
+                            <option value="detailed">Detailed Report</option>
+                            <option value="disease_distribution">Disease Distribution</option>
+                            <option value="user_activity">User Activity</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date Range</label>
+                        <select id="reportDatePreset">
+                            <option value="all">All time</option>
+                            <option value="today">Today</option>
+                            <option value="yesterday">Yesterday</option>
+                            <option value="7">Last 7 days</option>
+                            <option value="30" selected>Last 30 days</option>
+                            <option value="month">This month</option>
+                            <option value="year">This year</option>
+                            <option value="custom">Custom range</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date From</label>
+                            <input type="date" id="reportDateFrom">
+                        </div>
+                        <div class="form-group">
+                            <label>Date To</label>
+                        <input type="date" id="reportDateTo">
+                    </div>
+                    </div>
+                    <button type="submit" class="btn-submit">Generate Report</button>
+                </form>
+                </div>
+                <div id="reportResult" style="margin-top: 20px; display: none;">
+                    <div class="report-meta" id="reportMeta"></div>
+                    <div id="reportContent"></div>
+                    <div class="report-actions">
+                        <button onclick="downloadReport('pdf')" class="btn-primary">
+                            <i class="fas fa-file-pdf"></i> Download PDF
+                        </button>
+                        <button onclick="downloadReport('csv')" class="btn-secondary">
+                            <i class="fas fa-file-csv"></i> Download CSV
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+    <script>
+        const userData = JSON.parse(localStorage.getItem('user') || '{}');
+        if (userData.username) {
+            document.getElementById('usernameDisplay').textContent = userData.username;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,761 @@
+{
+  "report_id": "ad75a9b3-b14e-40f0-a944-72995363fe39",
+  "type": "user_activity",
+  "generated_at": "2026-09-01T06:42:37.165230",
+  "date_from": "2026-08-03",
+  "date_to": "2026-09-01",
+  "generated_by": "admin",
+  "data": {
+    "type": "user_activity",
+    "users": {
+      "Naresh Kumar": {
+        "email": "naresh21@gmail.com",
+        "role": "Farmer",
+        "registration_time": "2026-08-31T06:21:35.441928",
+        "login_time": "2026-09-01T06:19:29.323857",
+        "last_active_time": "2026-09-01T06:19:41.430295",
+        "login_count": 3,
+        "detection_count": 1,
+        "most_recent_activity": "User logged out"
+      },
+      "JOSHIKA": {
+        "email": "joshika12@gmail.com",
+        "role": "Farmer",
+        "registration_time": "2026-08-20T09:56:47.932521",
+        "login_time": "2026-08-20T09:56:57.122435",
+        "last_active_time": "2026-08-20T10:11:57.986340",
+        "login_count": 1,
+        "detection_count": 3,
+        "most_recent_activity": "User logged out"
+      },
+      "NAGANAETHRA": {
+        "email": "naganaethrark2006@gmail.com",
+        "role": "Farmer",
+        "registration_time": "2026-08-20T09:51:35.880128",
+        "login_time": "2026-08-20T09:51:52.401554",
+        "last_active_time": "2026-08-20T09:54:03.762894",
+        "login_count": 1,
+        "detection_count": 0,
+        "most_recent_activity": "User logged out"
+      },
+      "NANDHANA ": {
+        "email": "727723eucs138@skcet.ac.in",
+        "role": "Farmer",
+        "registration_time": "2026-08-20T09:50:39.576687",
+        "login_time": null,
+        "last_active_time": "2026-08-20T09:50:39.595599",
+        "login_count": 0,
+        "detection_count": 0,
+        "most_recent_activity": "User registered"
+      },
+      "vignesh": {
+        "email": "tharun@gmail.com",
+        "role": "Farmer",
+        "registration_time": "2026-08-12T06:43:11.585422",
+        "login_time": "2026-08-13T07:01:33.245164",
+        "last_active_time": "2026-08-13T07:02:39.069982",
+        "login_count": 9,
+        "detection_count": 19,
+        "most_recent_activity": "User logged out"
+      },
+      "admin": {
+        "email": "admin@coconutdetection.com",
+        "role": "Admin",
+        "registration_time": "2026-07-28T05:47:19.510719",
+        "login_time": "2026-09-01T06:19:49.118106",
+        "last_active_time": "2026-09-01T06:42:29.380073",
+        "login_count": 15,
+        "detection_count": 0,
+        "most_recent_activity": "Generated disease_distribution report"
+      }
+    },
+    "activities": [
+      {
+        "user": "admin",
+        "activity": "Generated disease_distribution report",
+        "details": "Report ID: c5ea0ee9-32e2-4579-93f1-4bad3ceba086",
+        "created_at": "2026-09-01T06:42:29.380073"
+      },
+      {
+        "user": "admin",
+        "activity": "Generated detailed report",
+        "details": "Report ID: e5bd2225-0557-47a4-8e7f-5b2edc096b14",
+        "created_at": "2026-09-01T06:42:18.677337"
+      },
+      {
+        "user": "admin",
+        "activity": "Generated summary report",
+        "details": "Report ID: cceee89e-67ba-47f5-a84b-56a5dc1b4258",
+        "created_at": "2026-09-01T06:41:57.862808"
+      },
+      {
+        "user": "admin",
+        "activity": "Generated detailed report",
+        "details": "Report ID: 70519870-c04e-49c5-ac26-5fe2326a864a",
+        "created_at": "2026-09-01T06:30:19.323217"
+      },
+      {
+        "user": "admin",
+        "activity": "Generated summary report",
+        "details": "Report ID: cfdd122b-584c-45cd-9c62-2862931c5bd8",
+        "created_at": "2026-09-01T06:30:07.359808"
+      },
+      {
+        "user": "admin",
+        "activity": "Generated summary report",
+        "details": "Report ID: 843a5622-b07a-49c1-8e2f-12190eab5372",
+        "created_at": "2026-09-01T06:30:04.335574"
+      },
+      {
+        "user": "admin",
+        "activity": "Updated disease: Bud Root",
+        "details": "Disease ID: 2",
+        "created_at": "2026-09-01T06:29:02.887045"
+      },
+      {
+        "user": "admin",
+        "activity": "Updated disease: Bud Root",
+        "details": "Disease ID: 2",
+        "created_at": "2026-09-01T06:28:56.757182"
+      },
+      {
+        "user": "admin",
+        "activity": "Updated disease: Bud Root",
+        "details": "Disease ID: 2",
+        "created_at": "2026-09-01T06:28:23.726322"
+      },
+      {
+        "user": "admin",
+        "activity": "Updated disease: Bud Root Dropping",
+        "details": "Disease ID: 1",
+        "created_at": "2026-09-01T06:27:08.246946"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged in",
+        "details": "Username: admin",
+        "created_at": "2026-09-01T06:19:49.140134"
+      },
+      {
+        "user": "Naresh Kumar",
+        "activity": "User logged out",
+        "details": "Username: Naresh Kumar",
+        "created_at": "2026-09-01T06:19:41.430295"
+      },
+      {
+        "user": "Naresh Kumar",
+        "activity": "User logged in",
+        "details": "Username: Naresh Kumar",
+        "created_at": "2026-09-01T06:19:29.349951"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged out",
+        "details": "Username: admin",
+        "created_at": "2026-09-01T06:19:23.455598"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged in",
+        "details": "Username: admin",
+        "created_at": "2026-09-01T06:11:37.382869"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged out",
+        "details": "Username: admin",
+        "created_at": "2026-09-01T06:11:27.695214"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged in",
+        "details": "Username: admin",
+        "created_at": "2026-09-01T06:05:07.769474"
+      },
+      {
+        "user": "Naresh Kumar",
+        "activity": "User logged out",
+        "details": "Username: Naresh Kumar",
+        "created_at": "2026-09-01T06:05:00.312128"
+      },
+      {
+        "user": "Naresh Kumar",
+        "activity": "User logged in",
+        "details": "Username: Naresh Kumar",
+        "created_at": "2026-09-01T06:04:47.538354"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged out",
+        "details": "Username: admin",
+        "created_at": "2026-09-01T06:04:41.448347"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged in",
+        "details": "Username: admin",
+        "created_at": "2026-09-01T05:55:59.275983"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged out",
+        "details": "Username: admin",
+        "created_at": "2026-08-31T07:51:54.865579"
+      },
+      {
+        "user": "admin",
+        "activity": "Generated disease_distribution report",
+        "details": "Report ID: 26f56159-6bfe-4704-be69-9d46c1860e7e",
+        "created_at": "2026-08-31T07:46:21.499004"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged in",
+        "details": "Username: admin",
+        "created_at": "2026-08-31T07:44:12.625638"
+      },
+      {
+        "user": "admin",
+        "activity": "Generated user_activity report",
+        "details": "Report ID: 1a9e6e27-b689-42da-bdd3-1a585282707f",
+        "created_at": "2026-08-31T07:43:31.853305"
+      },
+      {
+        "user": "admin",
+        "activity": "Generated disease_distribution report",
+        "details": "Report ID: 785a85f4-d780-4f16-ab7c-bcfb04b2f0b0",
+        "created_at": "2026-08-31T07:43:03.514129"
+      },
+      {
+        "user": "admin",
+        "activity": "Generated disease_distribution report",
+        "details": "Report ID: efccb312-4cda-4e89-b5d7-b86ac7cb2929",
+        "created_at": "2026-08-31T07:43:00.445649"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged in",
+        "details": "Username: admin",
+        "created_at": "2026-08-31T07:42:34.559967"
+      },
+      {
+        "user": "admin",
+        "activity": "Generated summary report",
+        "details": "Report ID: 21e0c041-3292-4e7a-b195-53e526149cf4",
+        "created_at": "2026-08-31T07:41:26.119890"
+      },
+      {
+        "user": "admin",
+        "activity": "Generated detailed report",
+        "details": "Report ID: 9a3ec820-7752-4870-a137-dc752984abee",
+        "created_at": "2026-08-31T07:41:19.744944"
+      },
+      {
+        "user": "admin",
+        "activity": "Generated summary report",
+        "details": "Report ID: 383a8cf6-af7d-4e1f-9810-749009810b2e",
+        "created_at": "2026-08-31T07:41:16.245448"
+      },
+      {
+        "user": "admin",
+        "activity": "Generated summary report",
+        "details": "Report ID: d3c95878-b2da-4924-9d07-f007cb66121b",
+        "created_at": "2026-08-31T07:40:50.049505"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged in",
+        "details": "Username: admin",
+        "created_at": "2026-08-31T07:38:34.222216"
+      },
+      {
+        "user": "Naresh Kumar",
+        "activity": "User logged out",
+        "details": "Username: Naresh Kumar",
+        "created_at": "2026-08-31T07:18:30.879721"
+      },
+      {
+        "user": "Naresh Kumar",
+        "activity": "Disease detected",
+        "details": "Disease: Bud Root, Confidence: 0.34",
+        "created_at": "2026-08-31T06:24:14.374071"
+      },
+      {
+        "user": "Naresh Kumar",
+        "activity": "User logged in",
+        "details": "Username: Naresh Kumar",
+        "created_at": "2026-08-31T06:21:46.586479"
+      },
+      {
+        "user": "Naresh Kumar",
+        "activity": "User registered",
+        "details": "Username: Naresh Kumar",
+        "created_at": "2026-08-31T06:21:35.456926"
+      },
+      {
+        "user": "JOSHIKA",
+        "activity": "User logged out",
+        "details": "Username: JOSHIKA",
+        "created_at": "2026-08-20T10:11:57.986340"
+      },
+      {
+        "user": "JOSHIKA",
+        "activity": "Disease detected",
+        "details": "Disease: Leaf Rot, Confidence: 0.26",
+        "created_at": "2026-08-20T10:00:47.057225"
+      },
+      {
+        "user": "JOSHIKA",
+        "activity": "Disease detected",
+        "details": "Disease: Stem Bleeding, Confidence: 0.59",
+        "created_at": "2026-08-20T09:58:04.714019"
+      },
+      {
+        "user": "JOSHIKA",
+        "activity": "Disease detected",
+        "details": "Disease: Bud Root, Confidence: 0.34",
+        "created_at": "2026-08-20T09:57:21.725952"
+      },
+      {
+        "user": "JOSHIKA",
+        "activity": "User logged in",
+        "details": "Username: JOSHIKA",
+        "created_at": "2026-08-20T09:56:57.136444"
+      },
+      {
+        "user": "JOSHIKA",
+        "activity": "User registered",
+        "details": "Username: JOSHIKA",
+        "created_at": "2026-08-20T09:56:47.943811"
+      },
+      {
+        "user": "NAGANAETHRA",
+        "activity": "User logged out",
+        "details": "Username: NAGANAETHRA",
+        "created_at": "2026-08-20T09:54:03.762894"
+      },
+      {
+        "user": "NAGANAETHRA",
+        "activity": "Disease detected",
+        "details": "Disease: Stem Bleeding, Confidence: 0.65",
+        "created_at": "2026-08-20T09:52:51.944533"
+      },
+      {
+        "user": "NAGANAETHRA",
+        "activity": "User logged in",
+        "details": "Username: NAGANAETHRA",
+        "created_at": "2026-08-20T09:51:52.414819"
+      },
+      {
+        "user": "NAGANAETHRA",
+        "activity": "User registered",
+        "details": "Username: NAGANAETHRA",
+        "created_at": "2026-08-20T09:51:35.889599"
+      },
+      {
+        "user": "NANDHANA ",
+        "activity": "User registered",
+        "details": "Username: NANDHANA ",
+        "created_at": "2026-08-20T09:50:39.595599"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged out",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-13T07:02:39.069982"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged in",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-13T07:01:33.260286"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged out",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-13T06:55:58.911585"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged in",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-13T06:47:22.649045"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged out",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-13T06:47:11.535087"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Bud Root Dropping, Confidence: 0.28",
+        "created_at": "2026-08-13T06:44:27.087594"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Bud Root Dropping, Confidence: 0.25",
+        "created_at": "2026-08-13T06:44:13.881727"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Bud Root, Confidence: 0.37",
+        "created_at": "2026-08-13T06:43:58.138654"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Bud Root, Confidence: 0.35",
+        "created_at": "2026-08-13T06:43:47.152196"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Stem Bleeding, Confidence: 0.62",
+        "created_at": "2026-08-13T06:43:31.873777"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Healthy, Confidence: 0.26",
+        "created_at": "2026-08-13T06:43:16.451082"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged in",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-13T06:40:39.448037"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged out",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-13T06:40:26.348780"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Healthy, Confidence: 0.25",
+        "created_at": "2026-08-13T06:39:52.567820"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Gray Leaf Spot, Confidence: 0.28",
+        "created_at": "2026-08-13T06:39:40.064829"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Gray Leaf Spot, Confidence: 0.34",
+        "created_at": "2026-08-13T06:39:24.335029"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged in",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-13T06:37:48.950542"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged out",
+        "details": "Username: admin",
+        "created_at": "2026-08-13T06:37:40.116394"
+      },
+      {
+        "user": "admin",
+        "activity": "Deleted user tharun",
+        "details": "User ID: 2",
+        "created_at": "2026-08-13T06:37:14.531340"
+      },
+      {
+        "user": "admin",
+        "activity": "Updated user tharun",
+        "details": "User ID: 2",
+        "created_at": "2026-08-13T06:33:53.266523"
+      },
+      {
+        "user": "admin",
+        "activity": "Updated user admin",
+        "details": "User ID: 1",
+        "created_at": "2026-08-13T06:33:45.472537"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged in",
+        "details": "Username: admin",
+        "created_at": "2026-08-13T06:33:08.454387"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged in",
+        "details": "Username: admin",
+        "created_at": "2026-08-13T06:26:37.417178"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged out",
+        "details": "Username: admin",
+        "created_at": "2026-08-13T06:26:31.670846"
+      },
+      {
+        "user": "admin",
+        "activity": "Generated disease_distribution report",
+        "details": "Report ID: f4b8adaa-4106-4bce-8972-c4d9bb6e46ad",
+        "created_at": "2026-08-13T06:23:39.698885"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged in",
+        "details": "Username: admin",
+        "created_at": "2026-08-13T06:22:36.921099"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged out",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-13T06:22:32.188445"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Healthy, Confidence: 0.39",
+        "created_at": "2026-08-13T06:18:07.229720"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Healthy, Confidence: 0.39",
+        "created_at": "2026-08-13T06:16:59.000739"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Bud Root Dropping, Confidence: 0.25",
+        "created_at": "2026-08-13T06:16:32.603776"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Bud Root, Confidence: 0.35",
+        "created_at": "2026-08-13T06:15:26.715728"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Gray Leaf Spot, Confidence: 0.26",
+        "created_at": "2026-08-13T06:13:23.183557"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Gray Leaf Spot, Confidence: 0.26",
+        "created_at": "2026-08-13T06:07:09.865195"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged in",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-13T06:06:27.796986"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged out",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-13T06:06:15.102756"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Gray Leaf Spot, Confidence: 0.26",
+        "created_at": "2026-08-13T06:03:04.939293"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Stem Bleeding, Confidence: 0.62",
+        "created_at": "2026-08-13T06:02:42.036115"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged in",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-13T05:59:13.665651"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged out",
+        "details": "Username: admin",
+        "created_at": "2026-08-13T05:59:03.182643"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged in",
+        "details": "Username: admin",
+        "created_at": "2026-08-13T05:58:40.768873"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged out",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-12T06:59:00.864014"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Stem Bleeding, Confidence: 0.62",
+        "created_at": "2026-08-12T06:58:55.944566"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Healthy, Confidence: 0.39",
+        "created_at": "2026-08-12T06:58:36.672898"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged in",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-12T06:58:15.469731"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged out",
+        "details": "Username: admin",
+        "created_at": "2026-08-12T06:58:06.200990"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged in",
+        "details": "Username: admin",
+        "created_at": "2026-08-12T06:54:13.297925"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged out",
+        "details": "Username: admin",
+        "created_at": "2026-08-12T06:53:01.327436"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged in",
+        "details": "Username: admin",
+        "created_at": "2026-08-12T06:52:53.606623"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged out",
+        "details": "Username: admin",
+        "created_at": "2026-08-12T06:52:45.606282"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged in",
+        "details": "Username: admin",
+        "created_at": "2026-08-12T06:52:27.412923"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged out",
+        "details": "Username: admin",
+        "created_at": "2026-08-12T06:52:06.710886"
+      },
+      {
+        "user": "admin",
+        "activity": "Generated summary report",
+        "details": "Report ID: d5a52d0b-54b9-46ad-8158-a1b8fc491c91",
+        "created_at": "2026-08-12T06:50:25.989578"
+      },
+      {
+        "user": "admin",
+        "activity": "Generated detailed report",
+        "details": "Report ID: a36b6e85-0eee-4866-91e0-40f303fffe8a",
+        "created_at": "2026-08-12T06:50:23.517348"
+      },
+      {
+        "user": "admin",
+        "activity": "Deleted user guru",
+        "details": "User ID: 4",
+        "created_at": "2026-08-12T06:49:36.885415"
+      },
+      {
+        "user": "admin",
+        "activity": "Changed role for guru",
+        "details": "New role: admin",
+        "created_at": "2026-08-12T06:49:25.652014"
+      },
+      {
+        "user": "NANDHANA ",
+        "activity": "User registered",
+        "details": "Username: guru",
+        "created_at": "2026-08-12T06:49:25.562402"
+      },
+      {
+        "user": "admin",
+        "activity": "Changed role for tharun",
+        "details": "New role: admin",
+        "created_at": "2026-08-12T06:48:56.582787"
+      },
+      {
+        "user": "admin",
+        "activity": "User logged in",
+        "details": "Username: admin",
+        "created_at": "2026-08-12T06:48:31.233471"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged out",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-12T06:46:58.567195"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Healthy, Confidence: 0.25",
+        "created_at": "2026-08-12T06:46:41.100602"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Bud Root Dropping, Confidence: 0.25",
+        "created_at": "2026-08-12T06:45:24.761704"
+      },
+      {
+        "user": "vignesh",
+        "activity": "Disease detected",
+        "details": "Disease: Gray Leaf Spot, Confidence: 0.45",
+        "created_at": "2026-08-12T06:44:24.494998"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged in",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-12T06:43:53.198647"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged out",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-12T06:43:37.594495"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User logged in",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-12T06:43:23.552228"
+      },
+      {
+        "user": "vignesh",
+        "activity": "User registered",
+        "details": "Username: vignesh",
+        "created_at": "2026-08-12T06:43:11.607383"
+      }
+    ],
+    "total_detections": 23,
+    "total_activities": 114
+  }
+}

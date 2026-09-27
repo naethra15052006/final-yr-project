@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title description">
+  <title id="title">Coconut leaf blight illustration</title>
+  <desc id="description">A palm leaf with dark blight spots.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e7f5d5"/><stop offset="1" stop-color="#8ebe71"/></linearGradient><linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#78b84f"/><stop offset="1" stop-color="#245d35"/></linearGradient></defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <path d="M85 444C219 252 390 134 702 50 531 232 349 366 110 457z" fill="url(#leaf)"/>
+  <path d="M94 448C260 292 421 179 701 51" fill="none" stroke="#d2e594" stroke-width="14"/>
+  <path d="M281 285l-28-88M365 240l-21-85M450 194l-15-75M534 151l-5-67M234 333l-45-58M337 282l-37-64M435 228l-27-69M537 177l-17-64" stroke="#d2e594" stroke-width="10" stroke-linecap="round"/>
+  <g fill="#533a26"><ellipse cx="300" cy="280" rx="29" ry="18" transform="rotate(-30 300 280)"/><ellipse cx="399" cy="226" rx="36" ry="22" transform="rotate(-30 399 226)"/><ellipse cx="485" cy="170" rx="25" ry="16" transform="rotate(-30 485 170)"/><ellipse cx="240" cy="344" rx="21" ry="13" transform="rotate(-30 240 344)"/><ellipse cx="569" cy="132" rx="31" ry="18" transform="rotate(-30 569 132)"/></g>
+</svg>

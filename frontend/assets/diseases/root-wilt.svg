@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title description">
+  <title id="title">Coconut root wilt illustration</title>
+  <desc id="description">A wilted coconut palm and exposed roots.</desc>
+  <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c9e9f7"/><stop offset="1" stop-color="#f7e7bb"/></linearGradient></defs>
+  <rect width="800" height="500" fill="url(#sky)"/>
+  <path d="M0 357c170-55 306-19 437-42 140-25 239 19 363-26v211H0z" fill="#a57442"/>
+  <path d="M400 362h70l-35-245h-42z" fill="#715039"/>
+  <path d="M415 132C314 97 214 122 134 185c96-12 180-2 283-24zM424 134c73-62 169-71 250-22-98 7-176 35-251 58zM410 128C367 80 338 60 289 51c39 55 66 94 115 113z" fill="#768a46"/>
+  <path d="M398 124c-61 42-112 48-171 39 64 43 122 38 180-16M443 127c60 24 107 18 160-10-53 52-113 61-169 32" fill="none" stroke="#5f6537" stroke-width="16" stroke-linecap="round"/>
+  <path d="M418 356c-60 20-88 62-118 114M432 357c13 51-8 91-25 129M451 357c54 20 80 57 113 111M462 355c77-5 118 24 164 67" fill="none" stroke="#5b3d2d" stroke-width="14" stroke-linecap="round"/>
+  <path d="M0 430c185-22 284 28 439 1 132-23 231 12 361-10" fill="none" stroke="#d1a26d" stroke-width="17" opacity=".8"/>
+</svg>

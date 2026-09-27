@@ -1,0 +1,56 @@
+{
+  "report_id": "c5ea0ee9-32e2-4579-93f1-4bad3ceba086",
+  "type": "disease_distribution",
+  "generated_at": "2026-09-01T06:42:29.370073",
+  "date_from": "2026-08-03",
+  "date_to": "2026-09-01",
+  "generated_by": "admin",
+  "data": {
+    "type": "disease_distribution",
+    "diseases": {
+      "Gray Leaf Spot": {
+        "count": 6,
+        "avg_confidence": 0.3088292540361484,
+        "total_confidence": 1.8529755242168904,
+        "percentage": 26.08695652173913
+      },
+      "Bud Root Dropping": {
+        "count": 3,
+        "avg_confidence": 0.25835877303034066,
+        "total_confidence": 0.7750763190910219,
+        "percentage": 13.043478260869565
+      },
+      "Healthy": {
+        "count": 4,
+        "avg_confidence": 0.2888520663313102,
+        "total_confidence": 1.1554082653252409,
+        "percentage": 17.391304347826086
+      },
+      "Stem Bleeding": {
+        "count": 4,
+        "avg_confidence": 0.6155378170311451,
+        "total_confidence": 2.4621512681245803,
+        "percentage": 17.391304347826086
+      },
+      "Bud Root": {
+        "count": 5,
+        "avg_confidence": 0.3511318574845791,
+        "total_confidence": 1.7556592874228953,
+        "percentage": 21.73913043478261
+      },
+      "Leaf Rot": {
+        "count": 1,
+        "avg_confidence": 0.26244535595178603,
+        "total_confidence": 0.26244535595178603,
+        "percentage": 4.3478260869565215
+      }
+    },
+    "total_detections": 23,
+    "most_detected": "Gray Leaf Spot",
+    "least_detected": "Leaf Rot",
+    "date_range": {
+      "from": "2026-08-12T06:44:24.482996",
+      "to": "2026-08-31T06:24:14.362160"
+    }
+  }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - CocoDetect AI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-brand"><i class="fas fa-leaf"></i><span>CocoDetect</span></div>
+        <nav class="sidebar-nav">
+            <a href="/dashboard" id="dashboardNavLink"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="/detect" id="detectNavLink"><i class="fas fa-camera"></i> Detect Disease</a>
+            <a href="/history" id="historyNavLink"><i class="fas fa-history"></i> History</a>
+            <a href="/admin" id="adminNavLink" style="display: none;"><i class="fas fa-user-shield"></i> Admin Panel</a>
+            <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </div>
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-actions">
+                <button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+            </div>
+        </header>
+        <section class="profile-page">
+            <div class="profile-card">
+                <div class="profile-avatar"><i class="fas fa-user"></i></div>
+                <div>
+                    <h1 id="profileName">Your profile</h1>
+                    <p id="profileRole">Loading profile details...</p>
+                </div>
+                <dl class="profile-details">
+                    <div><dt>Admin Name</dt><dd id="profileNameDetail">Not provided</dd></div>
+                    <div><dt>Email</dt><dd id="profileEmail">Not provided</dd></div>
+                    <div><dt>Username</dt><dd id="profileUsername">Not provided</dd></div>
+                    <div><dt>Phone Number</dt><dd id="profilePhone">Not provided</dd></div>
+                    <div><dt>Role</dt><dd id="profileRoleDetail">Not provided</dd></div>
+                    <div><dt>User ID</dt><dd id="profileUserId">Not provided</dd></div>
+                    <div><dt>Member since</dt><dd id="profileCreatedAt">Not available</dd></div>
+                    <div><dt>Last login</dt><dd id="profileLastLogin">Not available</dd></div>
+                </dl>
+            </div>
+        </section>
+    </main>
+    <script>
+        const formatDate = value => value ? new Date(value).toLocaleString('en-IN', {
+            dateStyle: 'medium', timeStyle: 'short', timeZone: 'Asia/Kolkata'
+        }) + ' IST' : 'Not available';
+        async function loadProfile() {
+            const response = await fetch('/api/profile');
+            if (!response.ok) { window.location.href = '/login'; return; }
+            const profile = await response.json();
+            const isAdmin = profile.role === 'Administrator';
+            const displayName = profile.username || 'Not provided';
+            document.getElementById('profileName').textContent = displayName;
+            document.getElementById('profileRole').textContent = profile.role;
+            document.getElementById('profileNameDetail').textContent = displayName;
+            document.getElementById('profileEmail').textContent = profile.email || 'Not provided';
+            document.getElementById('profileUsername').textContent = profile.username || 'Not provided';
+            document.getElementById('profilePhone').textContent = profile.phone || 'Not provided';
+            document.getElementById('profileRoleDetail').textContent = isAdmin ? 'Admin' : profile.role;
+            document.getElementById('profileUserId').textContent = profile.user_id || 'Not provided';
+            document.getElementById('profileCreatedAt').textContent = formatDate(profile.created_at);
+            document.getElementById('profileLastLogin').textContent = formatDate(profile.last_login);
+            if (isAdmin) {
+                ['dashboardNavLink', 'detectNavLink', 'historyNavLink'].forEach(id => {
+                    document.getElementById(id).style.display = 'none';
+                });
+                document.getElementById('adminNavLink').style.display = 'flex';
+            }
+        }
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const dark = document.body.classList.contains('dark-theme');
+            document.querySelector('.theme-toggle i').className = dark ? 'fas fa-sun' : 'fas fa-moon';
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
+        }
+        async function logout() {
+            await fetch('/api/logout', { method: 'POST' });
+            localStorage.removeItem('user');
+            window.location.href = '/';
+        }
+        if (localStorage.getItem('theme') === 'dark') toggleTheme();
+        loadProfile();
+    </script>
+</body>
+</html>

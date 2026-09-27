@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title description">
+  <title id="title">Coconut bud rot illustration</title>
+  <desc id="description">A coconut palm bud with fungal rot markings.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dff6ec"/><stop offset="1" stop-color="#79c6a2"/></linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3c9b57"/><stop offset="1" stop-color="#0f5432"/></linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#sky)"/>
+  <path d="M0 405C167 350 285 410 421 375s234-10 379-55v180H0z" fill="#2d7449" opacity=".35"/>
+  <path d="M370 500h88l-20-260h-48z" fill="#75512f"/>
+  <path d="M403 250C281 123 153 102 63 130c119 36 205 104 340 169zM408 250C486 99 615 68 746 116c-117 43-218 101-338 166zM411 245C352 113 328 49 354 12c54 78 78 145 79 232z" fill="url(#leaf)"/>
+  <ellipse cx="410" cy="251" rx="62" ry="53" fill="#9b6d36"/>
+  <path d="M382 228c22-22 57-21 79 1M373 253c29-10 59-8 83 7M383 280c23-9 49-6 67 6" fill="none" stroke="#542d25" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="410" cy="252" r="18" fill="#382019"/>
+</svg>

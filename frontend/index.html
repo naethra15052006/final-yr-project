@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coconut Disease Detection - AI Powered System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-leaf"></i>
+                <span>CocoDetect AI</span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="active">Home</a>
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+                <a href="#" class="nav-btn" onclick="scrollToFeatures()">Features</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <i class="fas fa-robot"></i>
+                        AI-Powered Agriculture
+                    </div>
+                    <h1>Detect Coconut Diseases with <span>Artificial Intelligence</span></h1>
+                    <p>Revolutionizing coconut farming with cutting-edge deep learning technology. Identify diseases instantly and protect your coconut crops with precision.</p>
+                    <div class="hero-buttons">
+                        <a href="/register" class="btn-primary">
+                            Get Started <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#features" class="btn-secondary">
+                            Learn More <i class="fas fa-play-circle"></i>
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">95%</span>
+                            <span class="stat-label">Detection Accuracy</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Disease Types</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5000+</span>
+                            <span class="stat-label">Images Trained</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-container">
+                        <img src="/assets/hero/coconut-tree.jpg" alt="Healthy coconut palm leaves" class="main-image">
+                        <div class="floating-card card-1">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Healthy</span>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Disease Detected</span>
+                        </div>
+                        <div class="floating-card card-3">
+                            <i class="fas fa-thermometer-half"></i>
+                            <span>Grad-CAM Active</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Features</span>
+                <h2>Advanced AI Detection System</h2>
+                <p>Powered by EfficientNet and Grad-CAM technology for accurate and transparent disease identification</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Deep Learning Model</h3>
+                    <p>EfficientNet architecture with state-of-the-art accuracy for disease classification</p>
+                    <div class="feature-badge">EfficientNetB0</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Visual Explanations</h3>
+                    <p>Grad-CAM heatmaps highlight infected regions for transparent AI decisions</p>
+                    <div class="feature-badge">Grad-CAM</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-time Detection</h3>
+                    <p>Instant analysis with confidence scores and treatment recommendations</p>
+                    <div class="feature-badge">Real-time</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Detection History</h3>
+                    <p>Track all your detections and monitor disease patterns over time</p>
+                    <div class="feature-badge">Analytics</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Upload images from your phone for on-the-field disease detection</p>
+                    <div class="feature-badge">Responsive</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Treatment Guide</h3>
+                    <p>Get immediate treatment and prevention recommendations for each disease</p>
+                    <div class="feature-badge">Expert Advice</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diseases Section -->
+    <section class="diseases">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Diseases</span>
+                <h2>Common Coconut Diseases We Detect</h2>
+                <p>Our model is trained to identify these major coconut diseases with high accuracy</p>
+            </div>
+            <div class="diseases-grid">
+                <div class="disease-card bud-rot">
+                    <div class="disease-image">
+                        <img src="/assets/diseases/bud-rot.svg" alt="Illustration of coconut bud rot">
+                    </div>
+                    <div class="disease-info">
+                        <h3>Bud Rot</h3>
+                        <p>Caused by <em>Phytophthora palmivora</em>, affects the growing bud</p>
+                        <span class="disease-tag">Fungal</span>
+                    </div>
+                </div>
+                <div class="disease-card leaf-blight">
+                    <div class="disease-image">
+                        <img src="/assets/diseases/leaf-blight.svg" alt="Illustration of coconut leaf blight">
+                    </div>
+                    <div class="disease-info">
+                        <h3>Leaf Blight</h3>
+                        <p>Caused by <em>Bipolaris incurvata</em>, affects leaves</p>
+                        <span class="disease-tag">Fungal</span>
+                    </div>
+                </div>
+                <div class="disease-card stem-bleeding">
+                    <div class="disease-image">
+                        <img src="/assets/diseases/stem-bleeding.svg" alt="Illustration of coconut stem bleeding">
+                    </div>
+                    <div class="disease-info">
+                        <h3>Stem Bleeding</h3>
+                        <p>Caused by <em>Ceratocystis paradoxa</em>, affects the stem</p>
+                        <span class="disease-tag">Fungal</span>
+                    </div>
+                </div>
+                <div class="disease-card root-wilt">
+                    <div class="disease-image">
+                        <img src="/assets/diseases/root-wilt.svg" alt="Illustration of coconut root wilt">
+                    </div>
+                    <div class="disease-info">
+                        <h3>Root Wilt</h3>
+                        <p>Caused by <em>Phytoplasma</em>, affects the root system</p>
+                        <span class="disease-tag">Bacterial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">How It Works</span>
+                <h2>Simple 4-Step Process</h2>
+                <p>Upload, detect, understand, and take action with our AI system</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <h3>Upload Image</h3>
+                    <p>Take a photo of the coconut leaf or tree and upload it</p>
+                </div>
+                <div class="step-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>AI Analysis</h3>
+                    <p>EfficientNet analyzes the image in seconds</p>
+                </div>
+                <div class="step-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Get Results</h3>
+                    <p>Disease name, confidence score & Grad-CAM heatmap</p>
+                </div>
+                <div class="step-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Take Action</h3>
+                    <p>Follow treatment recommendations to save your crop</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Protect Your Coconut Crops?</h2>
+                <p>Join thousands of farmers using AI to detect diseases early and increase yield</p>
+                <div class="cta-buttons">
+                    <a href="/register" class="btn-primary">Get Started Now</a>
+                    <a href="/login" class="btn-secondary">Login</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-leaf"></i>
+                        <span>CocoDetect AI</span>
+                    </div>
+                    <p>AI-powered coconut disease detection system using EfficientNet and Grad-CAM</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="/">Home</a>
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                    <a href="#features">Features</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Diseases</h4>
+                    <a href="#">Bud Rot</a>
+                    <a href="#">Leaf Blight</a>
+                    <a href="#">Stem Bleeding</a>
+                    <a href="#">Root Wilt</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> support@cocodetect.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Agricultural AI Lab</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CocoDetect AI. All rights reserved. | Smart Agriculture</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToFeatures() {
+            document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Mobile menu
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Animate stats on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const stats = entry.target.querySelectorAll('.stat-number');
+                    stats.forEach(stat => {
+                        const target = parseInt(stat.textContent);
+                        let current = 0;
+                        const increment = target / 50;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(timer);
+                            }
+                            stat.textContent = Math.round(current) + (stat.textContent.includes('%') ? '%' : '+');
+                        }, 40);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+        observer.observe(document.querySelector('.hero-stats'));
+    </script>
+</body>
+</html>

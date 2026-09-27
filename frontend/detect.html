@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detect Disease - CocoDetect AI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-leaf"></i>
+            <span>CocoDetect</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/dashboard">
+                <i class="fas fa-home"></i> Dashboard
+            </a>
+            <a href="/detect" class="active">
+                <i class="fas fa-camera"></i> Detect Disease
+            </a>
+            <a href="/history">
+                <i class="fas fa-history"></i> History
+            </a>
+            <a href="/admin" id="adminNavLink" style="display: none;">
+                <i class="fas fa-user-shield"></i> Admin Panel
+            </a>
+            <a href="#" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a class="user-info profile-link" href="/profile" aria-label="View profile">
+                <img src="https://ui-avatars.com/api/?name=User&background=2ecc71&color=fff&size=40" alt="User">
+                <div>
+                    <span id="usernameDisplay">User</span>
+                    <small id="userRoleDisplay">Farmer</small>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="top-header">
+            <div class="header-actions">
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </button>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="detect-content">
+            <div class="detect-container">
+                <div class="detect-header">
+                    <h1><i class="fas fa-camera-retro"></i> Disease Detection</h1>
+                    <p>Upload a coconut leaf image to detect diseases using AI</p>
+                </div>
+
+                <div class="detect-grid">
+                    <div class="upload-section">
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-placeholder">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h3>Drop your image here</h3>
+                                <p>or click to browse</p>
+                                <span class="upload-hint">Supported formats: JPG, PNG, JPEG, GIF</span>
+                            </div>
+                            <input type="file" id="fileInput" accept="image/*" hidden>
+                            <div class="upload-preview" id="uploadPreview" style="display: none;">
+                                <img id="previewImage" alt="Preview">
+                                <button class="remove-image" onclick="removeImage()">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="upload-actions">
+                            <button class="btn-detect" id="detectBtn" disabled onclick="detectDisease()">
+                                <i class="fas fa-microscope"></i> Detect Disease
+                            </button>
+                            <button class="btn-clear" onclick="clearUpload()">
+                                <i class="fas fa-undo"></i> Clear
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="results-section" id="resultsSection">
+                        <div class="results-placeholder">
+                            <i class="fas fa-image"></i>
+                            <h3>No Detection Yet</h3>
+                            <p>Upload an image and click "Detect Disease" to see results</p>
+                        </div>
+                        
+                        <div class="results-content" id="resultsContent" style="display: none;">
+                            <div class="result-card">
+                                <div class="result-header">
+                                    <h3>Detection Result</h3>
+                                    <span class="result-date" id="resultDate"></span>
+                                </div>
+                                <div class="result-disease">
+                                    <div class="disease-info">
+                                        <span class="disease-name" id="diseaseName"></span>
+                                        <span class="confidence-score" id="confidenceScore"></span>
+                                    </div>
+                                    <div class="confidence-bar">
+                                        <div class="confidence-fill" id="confidenceFill"></div>
+                                    </div>
+                                </div>
+                                <div class="result-images">
+                                    <div class="result-image">
+                                        <h4>Original</h4>
+                                        <img id="resultOriginal" alt="Original Image">
+                                    </div>
+                                    <div class="result-image">
+                                        <h4>Grad-CAM Heatmap</h4>
+                                        <img id="resultHeatmap" alt="Grad-CAM Heatmap">
+                                    </div>
+                                </div>
+                                <div class="result-treatment">
+                                    <h4><i class="fas fa-heartbeat"></i> Treatment Recommendation</h4>
+                                    <p id="treatmentText"></p>
+                                </div>
+                                <div class="result-actions">
+                                    <button onclick="goToHistory()" class="btn-save">
+                                        <i class="fas fa-history"></i> Go to History
+                                    </button>
+                                    <button onclick="shareResult()" class="btn-share">
+                                        <i class="fas fa-share-alt"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Disease Information -->
+                <div class="disease-info-section">
+                    <h3><i class="fas fa-info-circle"></i> Common Coconut Diseases</h3>
+                    <div class="disease-info-grid">
+                        <div class="disease-info-card">
+                            <h4>Bud Rot</h4>
+                            <p>Caused by Phytophthora palmivora. Affects growing bud, causing rot.</p>
+                            <span class="severity high">High</span>
+                        </div>
+                        <div class="disease-info-card">
+                            <h4>Leaf Blight</h4>
+                            <p>Caused by Bipolaris incurvata. Affects leaves with brown spots.</p>
+                            <span class="severity medium">Medium</span>
+                        </div>
+                        <div class="disease-info-card">
+                            <h4>Stem Bleeding</h4>
+                            <p>Caused by Ceratocystis paradoxa. Stem exudates reddish gum.</p>
+                            <span class="severity high">High</span>
+                        </div>
+                        <div class="disease-info-card">
+                            <h4>Root Wilt</h4>
+                            <p>Caused by Phytoplasma. Roots rot and plant wilts.</p>
+                            <span class="severity critical">Critical</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/detect.js"></script>
+    <script>
+        async function logout() {
+            try {
+                await fetch('/api/logout', { method: 'POST' });
+                localStorage.removeItem('user');
+                window.location.href = '/';
+            } catch (error) {
+                console.error('Logout error:', error);
+            }
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const icon = document.querySelector('.theme-toggle i');
+            if (document.body.classList.contains('dark-theme')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+
+        const userData = JSON.parse(localStorage.getItem('user') || '{}');
+        if (userData.username) {
+            document.getElementById('usernameDisplay').textContent = userData.username;
+        }
+        if (userData.is_admin) {
+            document.getElementById('adminNavLink').style.display = 'flex';
+            document.getElementById('userRoleDisplay').textContent = 'Administrator';
+        }
+    </script>
+</body>
+</html>

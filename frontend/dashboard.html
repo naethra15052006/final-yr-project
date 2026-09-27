@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CocoDetect AI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-leaf"></i>
+            <span>CocoDetect</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/dashboard" class="active">
+                <i class="fas fa-home"></i> Dashboard
+            </a>
+            <a href="/detect">
+                <i class="fas fa-camera"></i> Detect Disease
+            </a>
+            <a href="/history">
+                <i class="fas fa-history"></i> History
+            </a>
+            <a href="/admin" id="adminNavLink" style="display: none;">
+                <i class="fas fa-user-shield"></i> Admin Panel
+            </a>
+            <a href="#" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a class="user-info profile-link" href="/profile" aria-label="View profile">
+                <img src="https://ui-avatars.com/api/?name=User&background=2ecc71&color=fff&size=40" alt="User">
+                <div>
+                    <span id="usernameDisplay">User</span>
+                    <small id="userRoleDisplay">Farmer</small>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="top-header">
+            <div class="header-actions">
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </button>
+                <button class="theme-toggle" type="button">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card stat-primary">
+                    <div class="stat-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalDetections">0</h3>
+                        <p>Total Detections</p>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 12%
+                    </div>
+                </div>
+                <div class="stat-card stat-success">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="healthyCount">0</h3>
+                        <p>Healthy Plants</p>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 8%
+                    </div>
+                </div>
+                <div class="stat-card stat-danger">
+                    <div class="stat-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="diseaseCount">0</h3>
+                        <p>Diseases Detected</p>
+                    </div>
+                    <div class="stat-change negative">
+                        <i class="fas fa-arrow-down"></i> 5%
+                    </div>
+                </div>
+                <div class="stat-card stat-warning">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="recentDetections">0</h3>
+                        <p>Recent Detections</p>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 15%
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Disease Distribution</h3>
+                        <button class="chart-action">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                    <div class="chart-canvas">
+                        <canvas id="diseaseChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Detection Trend</h3>
+                        <button class="chart-action">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                    <div class="chart-canvas">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Detections -->
+            <div class="recent-detections">
+                <div class="section-header">
+                    <h3>Recent Detections</h3>
+                    <a href="/history" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="detections-list" id="detectionsList">
+                    <!-- Detections will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+    <script>
+        async function logout() {
+            try {
+                await fetch('/api/logout', { method: 'POST' });
+                localStorage.removeItem('user');
+                window.location.href = '/';
+            } catch (error) {
+                console.error('Logout error:', error);
+            }
+        }
+
+        // Load user info
+        const userData = JSON.parse(localStorage.getItem('user') || '{}');
+        if (userData.username) {
+            document.getElementById('usernameDisplay').textContent = userData.username;
+        }
+        if (userData.is_admin) {
+            document.getElementById('adminNavLink').style.display = 'flex';
+            document.getElementById('userRoleDisplay').textContent = 'Administrator';
+        }
+    </script>
+</body>
+</html>
